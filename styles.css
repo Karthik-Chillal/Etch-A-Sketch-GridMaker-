@@ -6,8 +6,12 @@
 .container{
   display: flex;
   flex-wrap: wrap;
-  width: 100vw;
-  height: 100vh;
+  width: 700px;
+  border: 2px solid black;
+  height: 700px;
+}
+.btn{
+  height: 5vh;
 }
 .hovering{
   background-color: hsl(0, 0%, 63%);
