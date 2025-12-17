@@ -1,21 +1,30 @@
 const container=document.querySelector(".container");
-let gridh=16;
-let gridv=16;
-
-function gridMaker(h, v){
-  for(let i=0; i<h*v; i++){
+function gridMaker(l){
+  container.innerHTML='';
+  for(let i=0; i<l*l; i++){
     container.appendChild(document.createElement("div"));
   }
   const boxes = document.querySelectorAll(".container > div");
   boxes.forEach((ele)=>{
-    let valh=100/h;
-    let valv=100/v;
-    ele.style.width=`${valh}%`;
-    ele.style.height=`${valv}%`;
+    let val=100/l;
+    ele.style.width=`${val}%`;
+    ele.style.height=`${val}%`;
     // ele.style.border=`1px solid black`;
     ele.addEventListener("mouseover", (e)=>{
       e.target.style.backgroundColor="hsla(0, 0%, 0%, 1.00)";
     });
   });
 }
-gridMaker(16, 16);
+gridMaker(16);
+const btn=document.querySelector(".btn > button");
+btn.addEventListener("click", (e)=>{
+
+  let len=prompt("Enter Grid size (Max:100)");
+  len=Number(len);
+  if(len>0 && len<=100){
+    gridMaker(len);
+  }
+  else{
+    alert("Give a Valid Input");
+  }
+});
